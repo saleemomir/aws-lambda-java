@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.mir.saleem.Main'
+        )
+    }
+}
